@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RestoranProjesi.Models.Yemekler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.YemekAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porsiyon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ŞefAdi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.YemekAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porsiyon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ŞefAdi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.YemekNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.YemekNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.YemekNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
